@@ -1,9 +1,9 @@
 # seolog BACKEND
 برای استفاده از API  در **آموزش ویو** مراحل زیر رو انجام بدین:
 
-1. دانلود و نصب [پایتون](https://python.org)
-1. نصب جنگو با دستور pip install django
-1. استارت کردن سرور با دستور python3 manage.py runserver
+1. دانلود و نصب [**پایتون**](https://python.org)
+1. نصب **جنگو** با دستور pip install django
+1. استارت کردن سرور با دستور python manage.py runserver
 
 توضیخات بیشتر در **آموزش ساخت وبسایت با ویو** در [**همرویش**](https://hamruyesh.com) داده شده.
 

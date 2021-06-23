@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Article(models.Model):
 	title = models.CharField(
@@ -24,10 +25,19 @@ class Article(models.Model):
 		verbose_name="body"
 	)
 
-	publish_date = models.DateTimeField(auto_now_add=True)
+	author = models.ForeignKey(
+		User,
+		on_delete=models.CASCADE,
+		verbose_name="author"
+	)
+
+	pubdate = models.DateTimeField(auto_now_add=True)
 	update = models.DateTimeField(auto_now=True)
 
 	objects = models.Manager()
 
 	def __str__(self):
 		return self.title
+
+	class Meta:
+		ordering = ("-id",)
