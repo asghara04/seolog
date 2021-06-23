@@ -24,10 +24,10 @@ class ArticlesView(APIView):
 	
 		# Articles Query
 		try:
-			articles = Article.published.filter(**filters)
+			articles = Article.objects.filter(**filters)
 		except:
-			articles = Article.published.all()
+			articles = Article.objects.all()
 		
 		serializer = ArticleSerializer(articles, many=True, context={"request":request})
 
-		return Response(serializer.data, status=status.HTTP_OK_200)
+		return Response(serializer.data, status=status.HTTP_200_OK)
