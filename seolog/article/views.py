@@ -31,3 +31,23 @@ class ArticlesView(APIView):
 		serializer = ArticleSerializer(articles, many=True, context={"request":request})
 
 		return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+# single article data
+class ArticleView(APIView):
+
+	# get one article by the given detail, (if the given dertail was multiple article it gives the first one).
+	def get_article(self, **kwargs):
+		try:
+			return Article.objects.get(**kwargs)
+		except:
+			raise Http404
+
+	def get(self, request, **kwargs):
+		# get article by get_article function
+		article = self.get_article(**kwargs)
+
+		# serialize the giben article
+		serializer = ArticleSerializer(article, context={"request":request})
+
+		return Response(serializer.data, status=status.HTTP_200_OK)
